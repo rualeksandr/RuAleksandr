@@ -1,0 +1,35 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} robots.txt$ [NC]
+RewriteRule ^([^/]+) $1 [L]
+
+# Редирект с pollynails.ru и www.pollynails.ru на apstudio74.ru
+RewriteCond %{HTTP_HOST} ^pollynails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.pollynails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+
+# Редирект с pollynails74.ru и www.pollynails74.ru на apstudio74.ru
+RewriteCond %{HTTP_HOST} ^pollynails74\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.pollynails74\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+
+# Редирект с ap-nails.ru и www.ap-nails.ru на apstudio74.ru
+RewriteCond %{HTTP_HOST} ^ap-nails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.ap-nails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+
+# Редирект с g92274vq.beget.tech и www.g92274vq.beget.tech на apstudio74.ru
+RewriteCond %{HTTP_HOST} ^g92274vq.beget\.tech
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.g92274vq.beget\.tech
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+
+# Редирект с apnails.ru и www.apnails.ru на apstudio74.ru
+RewriteCond %{HTTP_HOST} ^apnails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.apnails\.ru
+RewriteRule ^(.*)$ http://apstudio74.ru/$1 [R=301,L]
+

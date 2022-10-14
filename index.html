@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="script/swiper-bundle.min.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script/swiper-bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://dikidi.ru/assets/js/widget_record/widget2.min.js"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="style.css?v=10" />
+    <title>AP STUDIO - Студия ногтевого сервиса в Челябинске</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <div class="dropdown">
+                <a
+                  class="dropdown-toggle top-bar__link"
+                  href="#"
+                  id="dropdownMenuLink"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="header-map-icon"></i>
+                  <span class="sm-text">Челябинск, Молодогвардейцев, 54а</span>
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li>
+                    <a class="dropdown-item" href="#">Посмотреть в 2gis</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Посмотреть в Яндекс.Картах</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      >Посмотреть в Google.Maps</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 text-end">
+              <a
+                class="top-bar__link top-bar__link--right"
+                href="tel:+79511218261"
+              >
+                <i class="header-phone-icon"></i>
+                <span class="sm-text">+7 (951) 121-82-61</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container main-header">
+        <div class="row">
+          <div class="col-12">
+            <div class="logo">AP studio</div>
+            <div class="slogan">Место здоровых ногтей 🌴</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="block-slider" id="top-slider">
+      <div class="container">
+        <div class="row">
+          <div class="slider col-12 p-0">
+            <div class="swiper swiper-one">
+              <div class="swiper-wrapper">
+                <div
+                  class="swiper-slide"
+                  v-for="n in 21"
+                  :key="n"
+                  style="width: 90% !important"
+                >
+                  <picture>
+                    <source
+                      :srcset="
+                        'img/header-slider/' + n + '/1320.jpg, ' + 
+                        'img/header-slider/' + n + '/retina-1320.jpg 2x'
+                      "
+                      media="(min-width: 1400px)"
+                    />
+                    <source
+                      :srcset="
+                        'img/header-slider/' + n + '/1140.jpg, ' + 
+                        'img/header-slider/' + n + '/retina-1140.jpg 2x'
+                      "
+                      media="(min-width: 1200px)"
+                    />
+                    <source
+                      :srcset="
+                        'img/header-slider/' + n + '/960.jpg, ' + 
+                        'img/header-slider/' + n + '/retina-960.jpg 2x'
+                      "
+                      media="(min-width: 992px)"
+                    />
+                    <source
+                      :srcset="
+                        'img/header-slider/' + n + '/720.jpg, ' + 
+                        'img/header-slider/' + n + '/retina-720.jpg 2x'
+                      "
+                      media="(min-width: 768px)"
+                    />
+                    <img
+                      style="max-width: 100%; border-radius: 25px"
+                      :srcset="
+                        'img/header-slider/' + n + '/540.jpg, ' + 
+                        'img/header-slider/' + n + '/retina-540.jpg 2x'
+                      "
+                      alt=""
+                    />
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main id="app">
+      <div class="container block-advantage">
+        <div class="row">
+          <div class="col-12 text-advantage">
+            Уютная студия маникюра для тебя ❤️
+          </div>
+        </div>
+      </div>
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Мы делаем</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 flex-nowrap scrolling-wrapper block-filter-cards">
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'all'}"
+              v-on:click="activeSection = 'all'"
+            >
+              Все работы
+            </div>
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'polly'}"
+              v-on:click="activeSection = 'polly'"
+            >
+              Полина
+            </div>
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'anastasia'}"
+              v-on:click="activeSection = 'anastasia'"
+            >
+              Настя
+            </div>
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'manicure'}"
+              v-on:click="activeSection = 'manicure'"
+            >
+              Маникюр
+            </div>
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'pedicure'}"
+              v-on:click="activeSection = 'pedicure'"
+            >
+              Педикюр
+            </div>
+            <div
+              class="filter-card"
+              v-bind:class="{'active': activeSection == 'pedicure'}"
+              v-on:click="activeSection = 'men'"
+            >
+              Мужской
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="square-container">
+              <div class="square-content">
+                <div class="swiper-two swiper portfolio">
+                  <div class="swiper-wrapper">
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/1.jpg,
+                          img/portfolio/retina-1.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/2.jpg,
+                          img/portfolio/retina-2.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/3.jpg,
+                          img/portfolio/retina-3.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/4.jpg,
+                          img/portfolio/retina-4.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/5.jpg,
+                          img/portfolio/retina-5.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/6.jpg,
+                          img/portfolio/retina-6.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/7.jpg,
+                          img/portfolio/retina-7.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/8.jpg,
+                          img/portfolio/retina-8.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/9.jpg,
+                          img/portfolio/retina-9.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/10.jpg,
+                          img/portfolio/retina-10.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/11.jpg,
+                          img/portfolio/retina-11.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/12.jpg,
+                          img/portfolio/retina-12.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/13.jpg,
+                          img/portfolio/retina-13.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/14.jpg,
+                          img/portfolio/retina-14.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/15.jpg,
+                          img/portfolio/retina-15.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/16.jpg,
+                          img/portfolio/retina-16.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/17.jpg,
+                          img/portfolio/retina-17.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/18.jpg,
+                          img/portfolio/retina-18.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/19.jpg,
+                          img/portfolio/retina-19.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/20.jpg,
+                          img/portfolio/retina-20.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/21.jpg,
+                          img/portfolio/retina-21.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/22.jpg,
+                          img/portfolio/retina-22.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/23.jpg,
+                          img/portfolio/retina-23.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/24.jpg,
+                          img/portfolio/retina-24.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/25.jpg,
+                          img/portfolio/retina-25.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/26.jpg,
+                          img/portfolio/retina-26.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/27.jpg,
+                          img/portfolio/retina-27.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/28.jpg,
+                          img/portfolio/retina-28.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/29.jpg,
+                          img/portfolio/retina-29.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/30.jpg,
+                          img/portfolio/retina-30.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'pedicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/31.jpg,
+                          img/portfolio/retina-31.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure' || activeSection == 'men'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/32.jpg,
+                          img/portfolio/retina-32.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/33.jpg,
+                          img/portfolio/retina-33.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/34.jpg,
+                          img/portfolio/retina-34.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/35.jpg,
+                          img/portfolio/retina-35.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'polly' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/36.jpg,
+                          img/portfolio/retina-36.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/37.jpg,
+                          img/portfolio/retina-37.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/38.jpg,
+                          img/portfolio/retina-38.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                    <div
+                      class="swiper-slide portfolio-slide"
+                      v-if="activeSection == 'all' || activeSection == 'anastasia' || activeSection == 'manicure'"
+                    >
+                      <img
+                        srcset="
+                          img/portfolio/39.jpg,
+                          img/portfolio/retina-39.jpg 2x
+                        "
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <a
+              href="https://dikidi.ru/#widget=72617"
+              v-if="activeSection == 'all' || activeSection == '3'"
+            >
+              <div class="portfolio-button">Записаться в AP studio</div>
+            </a>
+            <a
+              href="https://dikidi.ru/#widget=78407"
+              v-if="activeSection == 'polly'"
+            >
+              <div class="portfolio-button">Записаться к Полине</div>
+            </a>
+            <a
+              href="https://dikidi.ru/#widget=78405"
+              v-if="activeSection == 'anastasia'"
+            >
+              <div class="portfolio-button">Записаться к Анастасии</div>
+            </a>
+            <a href="" v-if="activeSection == 'manicure'">
+              <div class="portfolio-button">Записаться на маникюр</div>
+            </a>
+            <a href="" v-if="activeSection == 'pedicure'">
+              <div class="portfolio-button">Записаться на педикюр</div>
+            </a>
+            <a
+              href="https://dikidi.ru/#widget=72617"
+              v-if="activeSection == 'men'"
+            >
+              <div class="portfolio-button">Записаться в AP studio</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="container block-advantage">
+        <div class="row">
+          <div class="col-12 text-advantage">
+            Используем премиум материалы 👍
+          </div>
+        </div>
+      </div>
+
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Цены</h2>
+          </div>
+        </div>
+        <div class="row gx-3">
+          <div class="col-3 offset-6"><b>Топ-мастер: Анастасия, Полина</b></div>
+          <div class="col-3"><b>Мастер: Валерия</b></div>
+        </div>
+        <div class="row gx-3">
+          <div class="col-12"><b>Маникюр</b></div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - без покрытия
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">600₽</div>
+          <div class="col-3">600₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - с укреплением и покрытием
+              <span class="service-execution-time">(2&#160;часа)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 400₽</div>
+          <div class="col-3">1 250₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - наращивание
+              <span class="service-execution-time">(3&#160;часа)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">2 000₽</div>
+          <div class="col-3">1 600₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - коррекция
+              <span class="service-execution-time">(3&#160;часа)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 800₽</div>
+          <div class="col-3">1 500₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - окончательное снятие покрытия + уход
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3 text-transfom-none">650₽</div>
+          <div class="col-3 text-transfom-none">650₽</div>
+        </div>
+        <div class="row gx-3">
+          <div class="col-12"><b>Педикюр</b></div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - «Пальчики»
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 300₽</div>
+          <div class="col-3">1 300₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - «Гигиена»
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 500₽</div>
+          <div class="col-3">1 500₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - «Полный»
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 800₽</div>
+          <div class="col-3">1 800₽</div>
+        </div>
+        <div class="row gx-3">
+          <div class="col-12"><b>Для мужчин</b></div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - маникюр
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">600₽</div>
+          <div class="col-3">600₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - маникюр с покрытием
+              <span class="service-execution-time">(1&#160;час)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 300₽</div>
+          <div class="col-3">1 300₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - педикюр Smart без покрытия
+              <span class="service-execution-time">(2&#160;часа)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">1 800₽</div>
+          <div class="col-3">1 800₽</div>
+        </div>
+        <div class="row gx-3">
+          <div class="col-12"><b>Дополнительно</b></div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - поднятие клюющих ногтей
+              <span class="service-execution-time">(15&#160;минут)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">от 100₽</div>
+          <div class="col-3">от 100₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - ремонт ногтя
+              <span class="service-execution-time">(15&#160;минут)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">от 50₽</div>
+          <div class="col-3">от 50₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - френч, лунки, втирка
+              <span class="service-execution-time">(15&#160;минут)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">200-300₽</div>
+          <div class="col-3">200-300₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - легкий дизайн
+              <span class="service-execution-time">(15&#160;минут)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">от 50₽</div>
+          <div class="col-3">от 50₽</div>
+        </div>
+        <div class="row gx-3 row-price">
+          <div class="col-6">
+            <a href="#">
+              - сложный дизайн
+              <span class="service-execution-time">(15&#160;минут)</span>
+              <div class="question-mark"></div>
+            </a>
+          </div>
+          <div class="col-3">от 50₽</div>
+          <div class="col-3">от 50₽</div>
+        </div>
+      </div>
+
+      <div class="container block-advantage">
+        <div class="row">
+          <div class="col-12 text-advantage">Наша оценка ⭐ 5.0 в 2gis</div>
+        </div>
+      </div>
+
+      <!-- <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Услуги</h2>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Отзывы</h2>
+            <div class="block">
+              <div class="rating">
+                <span class="rating-text">5.0</span>
+                <i class="i i-20 i-star" v-for="n in 5"></i>
+              </div>
+            </div>
+          </div>
+          <div>21 отзыв</div>
+        </div>
+        <div class="block-slider block" id="rewiews-slider">
+          <div class="container p-0">
+            <div class="row">
+              <div class="slider col-12 p-0">
+                <div class="swiper swiper-three">
+                  <div class="swiper-wrapper">
+                    <!-- 1 слайд -->
+                    <div
+                      class="swiper-slide reviews-slide"
+                      v-for="n in 20"
+                      :key="n"
+                    >
+                      <picture>
+                        <img
+                          style="max-width: 100%; border-radius: 25px"
+                          :srcset="
+                                      'img/reviews/' + n + '.png, ' + 
+                                      'img/reviews/' + n + '@2x.png 2x'
+                                    "
+                          alt=""
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container block-advantage">
+        <div class="row">
+          <div class="col-12 text-advantage">
+            Стерильный инструмент по СанПиН 💧
+          </div>
+        </div>
+      </div>
+
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Мастера</h2>
+          </div>
+        </div>
+        <div class="row cards-master">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="row card-master">
+                  <div class="col-4 col-sm-3 master-photo">
+                    <picture>
+                      <img
+                        srcset="
+                          img/master/polly.jpg,
+                          img/master/polly@x2.jpg 2x
+                        "
+                        alt="Фото мастера Полины в маникюрной студии PollyNails"
+                      />
+                    </picture>
+                  </div>
+                  <div class="col-8 col-sm-9">
+                    <h4>Полина</h4>
+                    <!-- <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="tel:+79514589035">+7(951)458-90-35</a>
+                      </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="https://dikidi.ru/#widget=78407"
+                          >Записаться к Полине</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row card-master">
+                  <div class="col-4 col-sm-3 master-photo">
+                    <picture>
+                      <img
+                        srcset="
+                          img/master/anastasia.jpg,
+                          img/master/anastasia@x2.jpg 2x
+                        "
+                        alt="Фото мастера Анастасии в маникюрной студии PollyNails"
+                      />
+                    </picture>
+                  </div>
+                  <div class="col-8 col-sm-9">
+                    <h4>Анастасия</h4>
+                    <!-- <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="tel:+79227458737">+7(922)745-87-37</a>
+                      </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="https://dikidi.ru/#widget=78405"
+                          >Записаться к Анастасии</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="row card-master">
+                  <div class="col-4 col-sm-3 master-photo">
+                    <picture>
+                      <img
+                        srcset="
+                          img/master/valeriya.jpg,
+                          img/master/valeriya@x2.jpg 2x
+                        "
+                        alt="Фото мастера Валерии в маникюрной студии PollyNails"
+                      />
+                    </picture>
+                  </div>
+                  <div class="col-8 col-sm-9">
+                    <h4>Валерия</h4>
+                    <!-- <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="tel:+79000635807">+7(900)063-58-07</a>
+                      </div>
+                    </div> -->
+                    <div class="row">
+                      <div class="col-12 btn-master">
+                        <a href="https://dikidi.ru/#widget=78409"
+                          >Записаться к Валерии</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container block-advantage">
+        <div class="row">
+          <div class="col-12 text-advantage">В самом ❤️ Челябинска</div>
+        </div>
+      </div>
+
+      <div class="block-slider block" id="sterilization-slider">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2>Стерильный инструмент</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 block">
+              <p>Мы безоговорочно соблюдаем нормы СанПиН.</p>
+              <p>
+                Весь инструмент промывается в ультразвуковой мойке,
+                и стрерилизуется в профессиональном медицинском сухожаре
+                «ГП-20». Данные о стерилизации заносятся в журнал. (да,
+                вы можете его попросить — мы покажем).
+              </p>
+              <p>
+                Вскрытие крафт пакета происходит при Вас. Мы стараемся
+                использовать как можно больше одноразовых инструментов в своей
+                работе. После сеанса одноразовый инструмент, мы либо отдаем Вам,
+                либо утилизируем.
+              </p>
+            </div>
+            <div class="slider col-12 col-md-6 p-0 block">
+              <div class="swiper swiper-sterilization">
+                <div class="swiper-wrapper">
+                  <div
+                    class="swiper-slide sterilization-slide"
+                    v-for="n in 2"
+                    :key="n"
+                  >
+                    <picture>
+                      <source
+                        :srcset="
+                          'img/sterilization/' + n + '/1320.jpg, ' + 
+                          'img/sterilization/' + n + '/1320@2x.jpg 2x'
+                        "
+                        media="(min-width: 1400px)"
+                      />
+                      <source
+                        :srcset="
+                          'img/sterilization/' + n + '/1140.jpg, ' + 
+                          'img/sterilization/' + n + '/1140@2x.jpg 2x'
+                        "
+                        media="(min-width: 1200px)"
+                      />
+                      <source
+                        :srcset="
+                          'img/sterilization/' + n + '/960.jpg, ' + 
+                          'img/sterilization/' + n + '/960@2x.jpg 2x'
+                        "
+                        media="(min-width: 992px)"
+                      />
+                      <source
+                        :srcset="
+                          'img/sterilization/' + n + '/720.jpg, ' + 
+                          'img/sterilization/' + n + '/720@2x.jpg 2x'
+                        "
+                        media="(min-width: 768px)"
+                      />
+                      <img
+                        style="max-width: 100%; border-radius: 25px"
+                        :srcset="
+                          'img/sterilization/' + n + '/540.jpg, ' + 
+                          'img/sterilization/' + n + '/540@2x.jpg 2x'
+                        "
+                        alt=""
+                      />
+                    </picture>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Мы в социальных сетях —</h2>
+            <div class="block">
+              <a href="https://vk.com/apstudio74" target="blank">
+                <i class="i i-50 i-vk"></i>
+              </a>
+              <a href="https://www.instagram.com/apstudio_74/" target="blank">
+                <i class="i i-50 i-inst"></i>
+              </a>
+              <!-- <a href="https://t.me/+_uJAofcVE0JmYmQy" target="blank">
+                <i class="i i-50 i-tg"></i>
+              </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container block">
+        <div class="row">
+          <div class="col-12">
+            <h2>Адрес в Челябинске</h2>
+            <div class="block">
+              <p>
+                <b>ул. Молодогвардейцев, 54а (ТК Максимум, 302 офис, 3 этаж, вход через Пятерочку)</b><br />
+                Ежедневно с 10:00 до 22:00
+              </p>
+              <!-- <p>
+                <a href="tel:+79227458737">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5342 14.3473V16.5354C16.5351 16.7385 16.4934 16.9396 16.4118 17.1257C16.3303 17.3118 16.2107 17.4789 16.0607 17.6162C15.9108 17.7535 15.7337 17.8581 15.5409 17.9231C15.3481 17.9882 15.1438 18.0124 14.9411 17.9941C12.6923 17.7502 10.5322 16.9833 8.63429 15.755C6.86855 14.6352 5.37151 13.1411 4.24949 11.3789C3.01442 9.47614 2.24581 7.30982 2.00593 5.05539C1.98767 4.8537 2.01169 4.65043 2.07645 4.45851C2.14122 4.26659 2.24532 4.09023 2.38212 3.94066C2.51893 3.7911 2.68543 3.6716 2.87105 3.58977C3.05666 3.50795 3.25731 3.46559 3.46022 3.4654H5.65262C6.00729 3.46192 6.35112 3.58726 6.62003 3.81807C6.88894 4.04887 7.06459 4.3694 7.11423 4.71989C7.20676 5.42012 7.37837 6.10765 7.62579 6.76937C7.72411 7.03042 7.74539 7.31413 7.6871 7.58689C7.62882 7.85964 7.49341 8.11 7.29693 8.3083L6.36881 9.23458C7.40914 11.0605 8.92402 12.5724 10.7536 13.6107L11.6817 12.6844C11.8804 12.4883 12.1313 12.3532 12.4046 12.295C12.6779 12.2368 12.9621 12.2581 13.2237 12.3562C13.8867 12.6031 14.5756 12.7744 15.2773 12.8668C15.6323 12.9167 15.9565 13.0952 16.1882 13.3682C16.42 13.6412 16.5431 13.9896 16.5342 14.3473Z"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10.6456 5.43918C11.5911 5.47875 12.5251 5.8595 13.247 6.58145C14.02 7.35444 14.4019 8.37044 14.3926 9.38353"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M11.1196 2.20742C12.6844 2.2729 14.23 2.90304 15.4248 4.09783C16.7041 5.37708 17.336 7.05851 17.3206 8.73512"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  +7 (922) 745-87-37 — Анастасия</a
+                ><br />
+                <a href="tel:+79514589035">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5342 14.3473V16.5354C16.5351 16.7385 16.4934 16.9396 16.4118 17.1257C16.3303 17.3118 16.2107 17.4789 16.0607 17.6162C15.9108 17.7535 15.7337 17.8581 15.5409 17.9231C15.3481 17.9882 15.1438 18.0124 14.9411 17.9941C12.6923 17.7502 10.5322 16.9833 8.63429 15.755C6.86855 14.6352 5.37151 13.1411 4.24949 11.3789C3.01442 9.47614 2.24581 7.30982 2.00593 5.05539C1.98767 4.8537 2.01169 4.65043 2.07645 4.45851C2.14122 4.26659 2.24532 4.09023 2.38212 3.94066C2.51893 3.7911 2.68543 3.6716 2.87105 3.58977C3.05666 3.50795 3.25731 3.46559 3.46022 3.4654H5.65262C6.00729 3.46192 6.35112 3.58726 6.62003 3.81807C6.88894 4.04887 7.06459 4.3694 7.11423 4.71989C7.20676 5.42012 7.37837 6.10765 7.62579 6.76937C7.72411 7.03042 7.74539 7.31413 7.6871 7.58689C7.62882 7.85964 7.49341 8.11 7.29693 8.3083L6.36881 9.23458C7.40914 11.0605 8.92402 12.5724 10.7536 13.6107L11.6817 12.6844C11.8804 12.4883 12.1313 12.3532 12.4046 12.295C12.6779 12.2368 12.9621 12.2581 13.2237 12.3562C13.8867 12.6031 14.5756 12.7744 15.2773 12.8668C15.6323 12.9167 15.9565 13.0952 16.1882 13.3682C16.42 13.6412 16.5431 13.9896 16.5342 14.3473Z"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10.6456 5.43918C11.5911 5.47875 12.5251 5.8595 13.247 6.58145C14.02 7.35444 14.4019 8.37044 14.3926 9.38353"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M11.1196 2.20742C12.6844 2.2729 14.23 2.90304 15.4248 4.09783C16.7041 5.37708 17.336 7.05851 17.3206 8.73512"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  +7 (951) 458-90-35 — Полина</a
+                ><br />
+                <a href="tel:+79000635807">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.5342 14.3473V16.5354C16.5351 16.7385 16.4934 16.9396 16.4118 17.1257C16.3303 17.3118 16.2107 17.4789 16.0607 17.6162C15.9108 17.7535 15.7337 17.8581 15.5409 17.9231C15.3481 17.9882 15.1438 18.0124 14.9411 17.9941C12.6923 17.7502 10.5322 16.9833 8.63429 15.755C6.86855 14.6352 5.37151 13.1411 4.24949 11.3789C3.01442 9.47614 2.24581 7.30982 2.00593 5.05539C1.98767 4.8537 2.01169 4.65043 2.07645 4.45851C2.14122 4.26659 2.24532 4.09023 2.38212 3.94066C2.51893 3.7911 2.68543 3.6716 2.87105 3.58977C3.05666 3.50795 3.25731 3.46559 3.46022 3.4654H5.65262C6.00729 3.46192 6.35112 3.58726 6.62003 3.81807C6.88894 4.04887 7.06459 4.3694 7.11423 4.71989C7.20676 5.42012 7.37837 6.10765 7.62579 6.76937C7.72411 7.03042 7.74539 7.31413 7.6871 7.58689C7.62882 7.85964 7.49341 8.11 7.29693 8.3083L6.36881 9.23458C7.40914 11.0605 8.92402 12.5724 10.7536 13.6107L11.6817 12.6844C11.8804 12.4883 12.1313 12.3532 12.4046 12.295C12.6779 12.2368 12.9621 12.2581 13.2237 12.3562C13.8867 12.6031 14.5756 12.7744 15.2773 12.8668C15.6323 12.9167 15.9565 13.0952 16.1882 13.3682C16.42 13.6412 16.5431 13.9896 16.5342 14.3473Z"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M10.6456 5.43918C11.5911 5.47875 12.5251 5.8595 13.247 6.58145C14.02 7.35444 14.4019 8.37044 14.3926 9.38353"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M11.1196 2.20742C12.6844 2.2729 14.23 2.90304 15.4248 4.09783C16.7041 5.37708 17.336 7.05851 17.3206 8.73512"
+                      stroke="#48484D"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                  +7 (900) 063-58-07 — Валерия</a
+                >
+              </p> -->
+              <p>
+                  <a href="tel:+79511218261">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16.5342 14.3473V16.5354C16.5351 16.7385 16.4934 16.9396 16.4118 17.1257C16.3303 17.3118 16.2107 17.4789 16.0607 17.6162C15.9108 17.7535 15.7337 17.8581 15.5409 17.9231C15.3481 17.9882 15.1438 18.0124 14.9411 17.9941C12.6923 17.7502 10.5322 16.9833 8.63429 15.755C6.86855 14.6352 5.37151 13.1411 4.24949 11.3789C3.01442 9.47614 2.24581 7.30982 2.00593 5.05539C1.98767 4.8537 2.01169 4.65043 2.07645 4.45851C2.14122 4.26659 2.24532 4.09023 2.38212 3.94066C2.51893 3.7911 2.68543 3.6716 2.87105 3.58977C3.05666 3.50795 3.25731 3.46559 3.46022 3.4654H5.65262C6.00729 3.46192 6.35112 3.58726 6.62003 3.81807C6.88894 4.04887 7.06459 4.3694 7.11423 4.71989C7.20676 5.42012 7.37837 6.10765 7.62579 6.76937C7.72411 7.03042 7.74539 7.31413 7.6871 7.58689C7.62882 7.85964 7.49341 8.11 7.29693 8.3083L6.36881 9.23458C7.40914 11.0605 8.92402 12.5724 10.7536 13.6107L11.6817 12.6844C11.8804 12.4883 12.1313 12.3532 12.4046 12.295C12.6779 12.2368 12.9621 12.2581 13.2237 12.3562C13.8867 12.6031 14.5756 12.7744 15.2773 12.8668C15.6323 12.9167 15.9565 13.0952 16.1882 13.3682C16.42 13.6412 16.5431 13.9896 16.5342 14.3473Z"
+                          stroke="#48484D"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M10.6456 5.43918C11.5911 5.47875 12.5251 5.8595 13.247 6.58145C14.02 7.35444 14.4019 8.37044 14.3926 9.38353"
+                          stroke="#48484D"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M11.1196 2.20742C12.6844 2.2729 14.23 2.90304 15.4248 4.09783C16.7041 5.37708 17.336 7.05851 17.3206 8.73512"
+                          stroke="#48484D"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      +7 (951) 121-82-61
+                  </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="map" class="col-12">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A718c02892939c93ccf91d22e1dda535a09472ed041fb299adfe7c39a058deaee&amp;source=constructor"
+              width="100%"
+              height="400"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-button-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <a href="https://dikidi.ru/#widget=72617">
+                <div class="footer-button">Записаться в AP studio</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

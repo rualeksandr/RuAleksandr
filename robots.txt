@@ -1,0 +1,6 @@
+User-agent: Yandex
+Host: apstudio74.ru
+
+User-agent: *
+Disallow:
+Sitemap: http://apstudio74.ru/sitemap.xml
